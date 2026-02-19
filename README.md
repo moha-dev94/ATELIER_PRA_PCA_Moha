@@ -232,26 +232,32 @@ Faites preuve de pédagogie et soyez clair dans vos explications et procedures d
 Quels sont les composants dont la perte entraîne une perte de données ?  
   
 *..Répondez à cet exercice ici..*
+La perte définitive des données survient si les volumes PVC pra-data (production) et PVC pra-backup (sauvegardes) sont détruits en même temps, ou bien si le disque physique du node qui les héberge devient inutilisable ou défaillant.
 
 **Exercice 2 :**  
 Expliquez nous pourquoi nous n'avons pas perdu les données lors de la supression du PVC pra-data  
   
 *..Répondez à cet exercice ici..*
-
+Grâce au CronJob qui effectue une copie de la base SQLite chaque minute vers le volume pra-backup. Ce second volume est resté intact, ce qui permet une restauration via un Job.
 **Exercice 3 :**  
 Quels sont les RTO et RPO de cette solution ?  
   
 *..Répondez à cet exercice ici..*
+RPO = Recovery Point Objective, ce qui est le point de reprise d'une solution. En outre, la quantité maximum de données qu'une organisation est prête a perdre. 
+RTO = Recovery Time Objective, c'est l'objectif de délai de restauration, c'est le temps max qu'un service peut-être indisponible. 
+
+En sachant cela, le RTO est d'une minute, correspondant à la fréquence des sauvegardes automatiques par CronJob. Et le RPO est de quelques minutes, soit le temps nécessaire pour exécuter manuellement la procédure de restauration (Job de restore).
 
 **Exercice 4 :**  
 Pourquoi cette solution (cet atelier) ne peux pas être utilisé dans un vrai environnement de production ? Que manque-t-il ?   
   
 *..Répondez à cet exercice ici..*
-  
+Il manque une externalisation des données, les sauvegardes sont stockées sur le même disque que la production. Un soucis logiciel ou une défaillance physique sur le disque détruirait tout. De plus, la procédure de restauration doit se faire manuellement et non automatique.
 **Exercice 5 :**  
 Proposez une archtecture plus robuste.   
   
 *..Répondez à cet exercice ici..*
+Il faudrait utiliser un stockage distant pour les backups, et déployer le cluster sur plusieurs zones de disponibilité pour garantir la résilience en cas de panne matérielle d'un node.
 
 ---------------------------------------------------
 Séquence 6 : Ateliers  
