@@ -270,7 +270,10 @@ Difficulté : Moyenne (~2 heures)
 * backup_age_seconds : âge du dernier backup
 
 *..**Déposez ici une copie d'écran** de votre réussite..*
-
+CODE : 
+<img width="1176" height="795" alt="image" src="https://github.com/user-attachments/assets/01753392-58cd-42e5-b0a2-c35da030c526" />
+Resultat : 
+<img width="970" height="284" alt="image" src="https://github.com/user-attachments/assets/0deb7a2a-c535-405e-81e9-bf3b7415a099" />
 ---------------------------------------------------
 ### **Atelier 2 : Choisir notre point de restauration**  
 Aujourd’hui nous restaurobs “le dernier backup”. Nous souhaitons **ajouter la capacité de choisir un point de restauration**.
