@@ -279,7 +279,8 @@ Resultat :
 Aujourd’hui nous restaurobs “le dernier backup”. Nous souhaitons **ajouter la capacité de choisir un point de restauration**.
 
 *..Décrir ici votre procédure de restauration (votre runbook)..*  
-  
+  <img width="1355" height="203" alt="image" src="https://github.com/user-attachments/assets/5a3e67dd-4628-41d3-a54f-87c62639fcbc" />
+
 ---------------------------------------------------
 Evaluation
 ---------------------------------------------------
