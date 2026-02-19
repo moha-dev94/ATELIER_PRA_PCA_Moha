@@ -281,6 +281,18 @@ Aujourd’hui nous restaurobs “le dernier backup”. Nous souhaitons **ajouter
 *..Décrir ici votre procédure de restauration (votre runbook)..*  
   <img width="1355" height="203" alt="image" src="https://github.com/user-attachments/assets/5a3e67dd-4628-41d3-a54f-87c62639fcbc" />
 
+Runbook :
+
+Étape 1 : Lister les sauvegardes disponibles Identifier le fichier souhaité avec la commande : kubectl -n pra exec -it deployment/flask -- ls /backup
+
+Étape 2 : Configurer le point de restauration
+Modifier le fichier pra/50-job-restore.yaml pour pointer vers le fichier choisi.
+
+Attention ! Il ne doit y avoir qu'une seule ligne de commande cp dans le bloc args.
+
+Étape 3 : Appliquer la restauration
+Supprimer l'ancien Job pour éviter les conflits et appliquer le nouveau :
+kubectl -n pra delete job sqlite-restore puis kubectl apply -f pra/50-job-restore.yaml
 ---------------------------------------------------
 Evaluation
 ---------------------------------------------------
